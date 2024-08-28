@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/************ layout common *************/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+}
+body {
+    position: relative;
+    font-family: 'Noto Sans KR', Sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000000;
+    word-break: keep-all;
+    overflow: overlay;
+}
+input, select, option, textarea, button {
+    font-family: 'Noto Sans KR', Sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: #000000;
+}
+::selection {
+    background-color: #464646;
+    color: #fff;
+}
+:focus {
+    outline: 0;
+}
+.minframe {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.maxframe {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #E2E2E2;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* 팝업시 뒤 화면 스크롤 없앰 */
+.scrollLock { overflow: hidden; }
+/* header */
+#kiosk .scHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 10;
+}
+#kiosk .scHeader.fixed {
+    background-color: #fff;
+}
+#kiosk .scHeader nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+}
+#kiosk .scHeader nav .btn-prev,
+#kiosk .scHeader nav .btn-next {
+    font-size: 1.6563rem;
+    font-weight: 500;
+    color: var(--secondary-txt-lighter);
+    z-index: 50;
+}
+#kiosk .scHeader nav .btn-prev {
+    padding-left: 5rem;
+}
+#kiosk .scHeader nav .btn-prev::before {
+    content: '';
+    background: var(--secondary-txt-lighter) url('/img/i-arrow-w.svg') no-repeat center / 9px 19px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%) rotate(180deg);
+    width: 3.3125rem;
+    height: 3.3125rem;
+    border-radius: 50%;
+}
+#kiosk .scHeader nav .btn-next {
+    padding-right: 5rem;
+}
+#kiosk .scHeader nav .btn-next::before {
+    content: '';
+    background: var(--secondary-txt-lighter) url('/img/i-arrow-w.svg') no-repeat center / 9px 19px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 3.3125rem;
+    height: 3.3125rem;
+    border-radius: 50%;
+}
+
+/* nav clicked */
+#kiosk .scHeader nav .btn-prev.clicked,
+#kiosk .scHeader nav .btn-next.clicked {
+    color: var(--primary);
+}
+#kiosk .scHeader nav .btn-prev.clicked::before,
+#kiosk .scHeader nav .btn-next.clicked::before {
+    content: '';
+    background-color: var(--primary);
+}
+
+/* 접수 nav */
+#kiosk .scHeader.agreeChk {
+    background-color: #F1F1F1;
+}
+#kiosk .scHeader.agreeChk nav > span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.6563rem;
+    line-height: var(--nav-height);
+    font-weight: 500;
+    color: #999;
+}
