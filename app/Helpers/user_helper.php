@@ -1,34 +1,4 @@
 <?php
-if ( !function_exists('getPwdHashing') ) {
-    function getPwdHashing($pwd) {
-        $pwdHashing = '';
-
-        if ($pwd) {
-            $pwdHashing = hash("sha256", $pwd);
-        }
-
-        return $pwdHashing;
-    }
-}
-
-if ( !function_exists('getToken') ) {
-    function getToken($header) {
-        $token = '';
-
-        if ($header) {
-            $token = explode(' ', $header)[1];
-        }
-
-        return $token;
-    }
-}
-
-if ( !function_exists('getLoginUserInfo') ) {
-    function getLoginUserInfo() {
-        return \Config\Services::getLoginUserInfo();
-    }
-}
-
 if ( !function_exists('getJno2') ) {
     function getJno2($jno) {
         $jno2 = '';
@@ -70,27 +40,6 @@ if ( !function_exists('getGenderCode') ) {
     }
 }
 
-if ( !function_exists('getRefererCd') ) {
-    function getRefererCd($referer) {
-        $refererCd = 'TP005';
-        
-        if ($referer == REFERER_HOMEPAGE) {
-            $refererCd = 'TP005';
-        } else if ($referer == REFERER_CHATBOT) {
-            $refererCd = 'TP001';
-        } else if ($referer == REFERER_PAYMENT){
-            $refererCd = 'TP007';
-        } else if ($referer == REFERER_FASTTRACK){
-            $refererCd = 'TP008';
-        } else if ($referer == REFERER_PAYFAST){
-            $refererCd = 'TP009';
-        }
-
-
-        return $refererCd;
-    }
-}
-
 // 휴대폰 - 삭제
 if ( !function_exists('replaceDash') ) {
     function replaceDash($str) {
@@ -116,13 +65,6 @@ if ( !function_exists('addDashMobile') ) {
         } else {
             return preg_replace("/([0-9]{3})([0-9]{3,4})([0-9]{4})$/","\\1-\\2-\\3" ,$mobile);
         }
-    }
-}
-
-// 경로 만들기
-if ( !function_exists('getImplode') ) {
-    function getImplode($arr) {
-        return implode( '/', $arr );
     }
 }
 ?>
