@@ -161,4 +161,5 @@ writable/*
 
 .env
 app/Config/App.php
+app/Config/Database.php
 app/Controllers/BaseController.php
